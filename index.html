@@ -12,78 +12,88 @@
     <header>
         <h1>Catálogo de Café</h1>
     </header>
-    <main>
-
+<br>
+    <div class="barra">
         <input type="text" id="search" placeholder="Pesquisar café...">
         <div id="search-results" class="product-list"></div>
+    </div>
 
-        <div class="product">
-            <img src="coffee1.jpg" alt="Café 1">
-            <h2>Café Especial 1</h2>
-            <p>Descrição do Café Especial 1. Um café delicioso com aroma único.</p>
-            <p class="price">R$ 15,00</p>
+    <main>
+
+
+        <div class="produtos">
+            <div class="produtos01">
+            <div class="product">
+                <img src="./image 1.png" alt="Café 1">
+                <h2>Café Especial 1</h2>
+                <p>Descrição do Café Especial 1. Um café delicioso com aroma único.</p>
+                <p class="price">R$ 15,00</p>
+            </div>
+            <div class="product">
+                <img src="./image 2.png" alt="Café 2">
+                <h2>Café Especial 2</h2>
+                <p>Descrição do Café Especial 2. Um café encorpado e saboroso.</p>
+                <p class="price">R$ 12,00</p>
+            </div>
+            <div class="product">
+                <img src="./image 3.png" alt="Café 3">
+                <h2>Café Especial 3</h2>
+                <p>Descrição do Café Especial 3. Uma mistura suave de café premium.</p>
+                <p class="price">R$ 18,00</p>
+            </div>
         </div>
-        <div class="product">
-            <img src="coffee2.jpg" alt="Café 2">
-            <h2>Café Especial 2</h2>
-            <p>Descrição do Café Especial 2. Um café encorpado e saboroso.</p>
-            <p class="price">R$ 12,00</p>
+            <div class="produtos02">
+            
+            <div class="product">
+                <img src="./image 4.png" alt="Café 4">
+                <h2>Café Especial 4</h2>
+                <p>Descrição do Café Especial 4. Uma mistura suave de café.</p>
+                <p class="price">R$ 20,00</p>
+            </div>
+
+            <div class="product">
+                <img src="./image 5.png" alt="Café ">
+                <h2>Café Especial 5</h2>
+                <p>Descrição do Café Especial 5. Uma mistura de café.</p>
+                <p class="price">R$ 22,00</p>
+            </div>
         </div>
-        <div class="product">
-            <img src="coffee3.jpg" alt="Café 3">
-            <h2>Café Especial 3</h2>
-            <p>Descrição do Café Especial 3. Uma mistura suave de café premium.</p>
-            <p class="price">R$ 18,00</p>
         </div>
     </main>
     <script>
         const products = document.querySelectorAll('.product');
-        products.forEach(product => {
-            product.addEventListener('click', () => {
-                product.classList.toggle('active');
-            });
-        });
-
         const searchInput = document.getElementById('search');
         const searchResults = document.getElementById('search-results');
+        const produtosDiv = document.querySelector('.produtos');
 
         // Função para realizar a pesquisa
         function performSearch() {
             const query = searchInput.value.toLowerCase();
             searchResults.innerHTML = '';
 
+            let hasResults = false;
+
             products.forEach(product => {
                 const productName = product.querySelector('h2').textContent.toLowerCase();
                 if (productName.includes(query)) {
                     searchResults.appendChild(product.cloneNode(true));
+                    product.style.display = 'block'; // Mostra produtos correspondentes
+                    hasResults = true;
+                } else {
+                    product.style.display = 'none'; // Esconde produtos não correspondentes
                 }
             });
 
-            if (searchResults.children.length === 0) {
+            if (hasResults) {
+                produtosDiv.style.display = 'none'; // Esconde a div com class "produtos"
+            } else {
+                produtosDiv.style.display = 'block'; // Mostra a div com class "produtos"
                 searchResults.innerHTML = 'Nenhum resultado encontrado.';
             }
         }
 
         // Evento para chamar a função de pesquisa ao digitar no campo de busca
         searchInput.addEventListener('input', performSearch);
-        // Função para realizar a pesquisa e esconder produtos não correspondentes
-        function performSearch() {
-            const query = searchInput.value.toLowerCase();
-            searchResults.innerHTML = '';
-
-            products.forEach(product => {
-                const productName = product.querySelector('h2').textContent.toLowerCase();
-                if (productName.includes(query)) {
-                    searchResults.appendChild(product.cloneNode(true));
-                } else {
-                    product.style.display = 'none'; // Esconde produtos não correspondentes
-                }
-            });
-
-            if (searchResults.children.length === 0) {
-                searchResults.innerHTML = 'Nenhum resultado encontrado.';
-            }
-        }
     </script>
 </body>
 
