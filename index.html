@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Catálogo de Café</h1>
+    </header>
+    <main>
+
+        <input type="text" id="search" placeholder="Pesquisar café...">
+        <div id="search-results" class="product-list"></div>
+
+        <div class="product">
+            <img src="coffee1.jpg" alt="Café 1">
+            <h2>Café Especial 1</h2>
+            <p>Descrição do Café Especial 1. Um café delicioso com aroma único.</p>
+            <p class="price">R$ 15,00</p>
+        </div>
+        <div class="product">
+            <img src="coffee2.jpg" alt="Café 2">
+            <h2>Café Especial 2</h2>
+            <p>Descrição do Café Especial 2. Um café encorpado e saboroso.</p>
+            <p class="price">R$ 12,00</p>
+        </div>
+        <div class="product">
+            <img src="coffee3.jpg" alt="Café 3">
+            <h2>Café Especial 3</h2>
+            <p>Descrição do Café Especial 3. Uma mistura suave de café premium.</p>
+            <p class="price">R$ 18,00</p>
+        </div>
+    </main>
+    <script>
+        const products = document.querySelectorAll('.product');
+        products.forEach(product => {
+            product.addEventListener('click', () => {
+                product.classList.toggle('active');
+            });
+        });
+
+        const searchInput = document.getElementById('search');
+        const searchResults = document.getElementById('search-results');
+
+        // Função para realizar a pesquisa
+        function performSearch() {
+            const query = searchInput.value.toLowerCase();
+            searchResults.innerHTML = '';
+
+            products.forEach(product => {
+                const productName = product.querySelector('h2').textContent.toLowerCase();
+                if (productName.includes(query)) {
+                    searchResults.appendChild(product.cloneNode(true));
+                }
+            });
+
+            if (searchResults.children.length === 0) {
+                searchResults.innerHTML = 'Nenhum resultado encontrado.';
+            }
+        }
+
+        // Evento para chamar a função de pesquisa ao digitar no campo de busca
+        searchInput.addEventListener('input', performSearch);
+        // Função para realizar a pesquisa e esconder produtos não correspondentes
+        function performSearch() {
+            const query = searchInput.value.toLowerCase();
+            searchResults.innerHTML = '';
+
+            products.forEach(product => {
+                const productName = product.querySelector('h2').textContent.toLowerCase();
+                if (productName.includes(query)) {
+                    searchResults.appendChild(product.cloneNode(true));
+                } else {
+                    product.style.display = 'none'; // Esconde produtos não correspondentes
+                }
+            });
+
+            if (searchResults.children.length === 0) {
+                searchResults.innerHTML = 'Nenhum resultado encontrado.';
+            }
+        }
+    </script>
+</body>
+
+</html>
