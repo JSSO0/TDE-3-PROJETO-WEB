@@ -4,17 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Catalogo de Café</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
 </head>
 
 <body>
     <header>
         <h1>Catálogo de Café</h1>
     </header>
-<br>
+    <br>
     <div class="barra">
-        <input type="text" id="search" placeholder="Pesquisar café...">
+        <input type="text" id="search" placeholder="Pesquisar café..."
+            style="border: 2px solid #2ecc71; background-color: #f7f7f7; padding: 8px; border-radius: 5px;">
         <div id="search-results" class="product-list"></div>
     </div>
 
@@ -23,41 +30,167 @@
 
         <div class="produtos">
             <div class="produtos01">
-            <div class="product">
-                <img src="./image 1.png" alt="Café 1">
-                <h2>Café Especial 1</h2>
-                <p>Descrição do Café Especial 1. Um café delicioso com aroma único.</p>
-                <p class="price">R$ 15,00</p>
+                <div class="product">
+                    <img src="./image 1.png" alt="Café 1">
+                    <h2>Café Especial 1</h2>
+                    <p>Descrição do Café Especial 1. Um café delicioso com aroma único.</p>
+                    <p class="price">R$ 15,00</p>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Comprar
+                    </button>
+                </div>
+                <div class="product">
+                    <img src="./image 2.png" alt="Café 2">
+                    <h2>Café Especial 2</h2>
+                    <p>Descrição do Café Especial 2. Um café encorpado e saboroso.</p>
+                    <p class="price">R$ 12,00</p>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal1">
+                        Comprar
+                    </button>
+                </div>
+                <div class="product">
+                    <img src="./image 3.png" alt="Café 3">
+                    <h2>Café Especial 3</h2>
+                    <p>Descrição do Café Especial 3. Uma mistura suave de café premium.</p>
+                    <p class="price">R$ 18,00</p>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal2">
+                        Comprar
+                    </button>
+                </div>
             </div>
-            <div class="product">
-                <img src="./image 2.png" alt="Café 2">
-                <h2>Café Especial 2</h2>
-                <p>Descrição do Café Especial 2. Um café encorpado e saboroso.</p>
-                <p class="price">R$ 12,00</p>
-            </div>
-            <div class="product">
-                <img src="./image 3.png" alt="Café 3">
-                <h2>Café Especial 3</h2>
-                <p>Descrição do Café Especial 3. Uma mistura suave de café premium.</p>
-                <p class="price">R$ 18,00</p>
-            </div>
-        </div>
             <div class="produtos02">
-            
-            <div class="product">
-                <img src="./image 4.png" alt="Café 4">
-                <h2>Café Especial 4</h2>
-                <p>Descrição do Café Especial 4. Uma mistura suave de café.</p>
-                <p class="price">R$ 20,00</p>
-            </div>
 
-            <div class="product">
-                <img src="./image 5.png" alt="Café ">
-                <h2>Café Especial 5</h2>
-                <p>Descrição do Café Especial 5. Uma mistura de café.</p>
-                <p class="price">R$ 22,00</p>
+                <div class="product">
+                    <img src="./image 4.png" alt="Café 4">
+                    <h2>Café Especial 4</h2>
+                    <p>Descrição do Café Especial 4. Uma mistura suave de café.</p>
+                    <p class="price">R$ 20,00</p>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal3">
+                        Comprar
+                    </button>
+                </div>
+
+                <div class="product">
+                    <img src="./image 5.png" alt="Café ">
+                    <h2>Café Especial 5</h2>
+                    <p>Descrição do Café Especial 5. Uma mistura de café.</p>
+                    <p class="price">R$ 22,00</p>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal4">
+                        Comprar
+                    </button>
+                </div>
             </div>
         </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Café Especial 1</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="./image 1.png" alt="Café 1" width="400px" height="300px"
+                            style="display: flex ;margin-left: auto; margin-right: auto;">
+                        <p>Descrição do Café Especial 1. Um café delicioso com aroma único.</p>
+                        <p class="price">R$ 15,00</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Café Especial 2</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="./image 2.png" alt="Café 1" width="400px" height="300px"
+                            style="display: flex ;margin-left: auto; margin-right: auto;">
+                        <p>Descrição do Café Especial 2. Um café encorpado e saboroso.</p>
+                        <p class="price">R$ 12,00</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Café Especial 3</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="./image 3.png" alt="Café 1" width="400px" height="300px"
+                            style="display: flex ;margin-left: auto; margin-right: auto;">
+
+                        <p>Descrição do Café Especial 3. Uma mistura suave de café premium.</p>
+                        <p class="price">R$ 18,00</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Café Especial 4</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="./image 4.png" alt="Café 1" width="400px" height="300px"
+                            style="display: flex ;margin-left: auto; margin-right: auto;">
+                        <p>Descrição do Café Especial 4. Uma mistura suave de café.</p>
+                        <p class="price">R$ 20,00</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Café Especial 5</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="./image 5.png" alt="Café 1" width="400px" height="300px"
+                            style="display: flex ;margin-left: auto; margin-right: auto;">
+
+                        <p>Descrição do Café Especial 5. Uma mistura de café.</p>
+                        <p class="price">R$ 22,00</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary">Comprar</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     <script>
@@ -94,6 +227,28 @@
 
         // Evento para chamar a função de pesquisa ao digitar no campo de busca
         searchInput.addEventListener('input', performSearch);
+
+        function showProductDetails(product) {
+            const productDetails = document.getElementById('product-details');
+            productDetails.innerHTML = ''; // Limpa o conteúdo existente
+
+            // Crie o conteúdo do card de detalhes do produto
+            const productImage = product.querySelector('img').cloneNode(true);
+            const productName = product.querySelector('h2').textContent;
+            const productDescription = product.querySelector('p').textContent;
+            const productPrice = product.querySelector('.price').textContent;
+
+            const cardContent = document.createElement('div');
+            cardContent.innerHTML = `
+                <h2>${productName}</h2>
+                ${productImage.outerHTML}
+                <p>${productDescription}</p>
+                <p class="price">${productPrice}</p>
+            `;
+
+            productDetails.appendChild(cardContent);
+            productDetails.style.display = 'block'; // Exibe o card de detalhes do produto
+        }
     </script>
 </body>
 
